@@ -439,7 +439,8 @@ for b in vim.buffers:
 for l in lines:
     if l != "":
         vim.command("redraw | echo '%s'" % l.replace("'", "''"))
-        break
+        if int(vim.eval('g:fsharp_echo_all_fsi_output')) != 1:
+            break
 EOF
 endfunction
 
